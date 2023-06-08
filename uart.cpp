@@ -1,4 +1,6 @@
 #include "uart.h"
+#include <iostream>
+#include <string>
 
 void USART2_Init(void){ //Initiate USART2_I
 
@@ -67,17 +69,17 @@ int fputc(int c, FILE *f) { // Initierar fputc med en int "c" som argument, samt
 
 
 int n;
-char str[80];
+std::string str;
 		
 void test_setup(void){
 	
-	printf("please enter a number: ");
-	scanf("%d", &n);
-	printf("the number entered is: %d\r\n", n);
-	printf("please type a character string: ");
-	gets(str);
-	printf("the character string entered is: ");
-	puts(str);
-	printf("\r\n");
+	std::cout << "please enter a number: ";
+	std::cin >> n;
+	std::cout << "the number entered is:" << n << "\r\n";
+	std::cout << "please type a character string: ";
+	std::cin >> str;
+	std::cout << "the character string entered is: ";
+	std::cout << str;
+	std::cout << "\r\n";
 	
 }
