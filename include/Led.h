@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "uart.h"
+#include "Led.h"
 #include "stm32f4xx.h"
 
 #define LED_PORT GPIOB
@@ -40,12 +41,12 @@ typedef enum
 class Led_type
 {
 private:
-    LedColor_Type color;
-    LedState_Type state;
-
 public:
-    Led_type(LedColor_Type _color, LedState_Type _state, const Led_type &led); // Konstruktor för LED-objektet
-    void Led_setState(LedState_Type _state, const Led_type &led);                   // Sätter state, on eller off
-    LedState_Type Led_getState(const Led_type &led);                                // Tar emot state
+    LedState_Type state;
+    Led_type(LedState_Type _state);                               // Konstruktor för LED-objektet
+    void Led_setState(LedState_Type _state, const Led_type &led); // Sätter state, on eller off
+    LedState_Type Led_getState(const Led_type &led);              // Tar emot state
 };
+
+
 #endif
